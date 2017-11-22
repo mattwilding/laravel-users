@@ -16,13 +16,13 @@
     },
     "autoload": {
         "psr-4": {
-            "swancreative\\laravelusers\\": "src/"
+            "swancreative\\laravel-users\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "swancreative\\laravelusers\\LaravelUsersServiceProvider"
+                "swancreative\\laravel-users\\LaravelUsersServiceProvider"
             ]
         }
     },
