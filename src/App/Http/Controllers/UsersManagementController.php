@@ -72,6 +72,13 @@ class UsersManagementController extends Controller
             $user->name         = $request->input('name');
             $user->email        = $request->input('email');
             $user->password     = bcrypt($request->input('password'));
+            if(isset($request->input('user_type'))){
+              if ($request->input('user_type') == 1){
+                $user->userType->is_admin = 1;
+              }else{
+                $user->userType->is_admin = 0;
+              }
+            }
             $user->save();
             return redirect('admin/users')->with('success', 'Successfully created user!');
         }
@@ -143,6 +150,13 @@ class UsersManagementController extends Controller
             }
             if ($request->input('password') != null) {
                 $user->password = bcrypt($request->input('password'));
+            }
+            if(isset($request->input('user_type'))){
+              if ($request->input('user_type') == 1){
+                $user->userType->is_admin = 1;
+              }else{
+                $user->userType->is_admin = 0;
+              }
             }
             $user->save();
             return back()->with('success', 'Successfully updated user');
